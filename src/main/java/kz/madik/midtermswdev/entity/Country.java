@@ -6,29 +6,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "t_item")
 @NoArgsConstructor
-public class Item {
+@Table(name = "t_country")
+public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String code;
 
-    private String description;
-
-    private int price;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
-
-    @ManyToMany
-    private List<Country> countries;
+    private String country;
 }
