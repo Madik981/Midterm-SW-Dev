@@ -9,6 +9,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ItemMapper {
+    @Mapping(target = "idDto", source = "id")
     @Mapping(target = "nameDto", source = "name")
     @Mapping(target = "descriptionDto", source = "description")
     @Mapping(target = "priceDto", source = "price")
@@ -16,6 +17,7 @@ public interface ItemMapper {
     @Mapping(target = "countriesDto", source = "countries")
     ItemDto toDto(Item item);
 
+    @Mapping(target = "id", source = "idDto")
     @Mapping(target = "name", source = "nameDto")
     @Mapping(target = "description", source = "descriptionDto")
     @Mapping(target = "price", source = "priceDto")

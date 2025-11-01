@@ -45,7 +45,7 @@ public class ItemMapperTest {
     @Test
     void convertDtoToEntityTest(){
 
-        ItemDto itemDto = new ItemDto("iPhone 15 Pro", "Powerful Smartphone", 1000, new Category(1L, "Smartphone"), List.of(new Country(1L, "KZ", "Kazakhstan")));
+        ItemDto itemDto = new ItemDto(1L, "iPhone 15 Pro", "Powerful Smartphone", 1000, new Category(1L, "Smartphone"), List.of(new Country(1L, "KZ", "Kazakhstan")));
 
         Item itemEntity = itemMapper.toEntity(itemDto);
 

@@ -15,6 +15,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ItemDto {
+    private Long idDto;
+
     private String nameDto;
 
     private String descriptionDto;
