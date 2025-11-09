@@ -24,12 +24,12 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemDto getById(Long id) {
-        return itemMapper.toDto(itemRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Not found")));
+        return itemMapper.toDto(itemRepository.findById(id).orElse(null));
     }
 
     @Override
-    public void addItem(ItemDto itemDto) {
-        itemRepository.save(itemMapper.toEntity(itemDto));
+    public ItemDto addItem(ItemDto itemDto) {
+        return itemMapper.toDto(itemRepository.save(itemMapper.toEntity(itemDto)));
     }
 
     @Override
@@ -48,7 +48,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         itemRepository.deleteById(id);
+
+        Item item = itemRepository.findById(id).orElse(null);
+
+        return item == null;
     }
 }

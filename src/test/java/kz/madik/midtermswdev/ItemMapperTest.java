@@ -28,12 +28,14 @@ public class ItemMapperTest {
 
         Assertions.assertNotNull(itemDto);
 
+        Assertions.assertNotNull(itemDto.getIdDto());
         Assertions.assertNotNull(itemDto.getNameDto());
         Assertions.assertNotNull(itemDto.getDescriptionDto());
         Assertions.assertNotNull(itemDto.getPriceDto());
         Assertions.assertNotNull(itemDto.getCategoryDto());
         Assertions.assertNotNull(itemDto.getCountriesDto());
 
+        Assertions.assertEquals(itemEntity.getId(), itemDto.getIdDto());
         Assertions.assertEquals(itemEntity.getName(), itemDto.getNameDto());
         Assertions.assertEquals(itemEntity.getDescription(), itemDto.getDescriptionDto());
         Assertions.assertEquals(itemEntity.getPrice(), itemDto.getPriceDto());
@@ -51,12 +53,14 @@ public class ItemMapperTest {
 
         Assertions.assertNotNull(itemEntity);
 
+        Assertions.assertNotNull(itemEntity.getId());
         Assertions.assertNotNull(itemEntity.getName());
         Assertions.assertNotNull(itemEntity.getDescription());
         Assertions.assertNotNull(itemEntity.getPrice());
         Assertions.assertNotNull(itemEntity.getCategory());
         Assertions.assertNotNull(itemEntity.getCountries());
 
+        Assertions.assertEquals(itemDto.getIdDto(), itemEntity.getId());
         Assertions.assertEquals(itemDto.getNameDto(), itemEntity.getName());
         Assertions.assertEquals(itemDto.getDescriptionDto(), itemEntity.getDescription());
         Assertions.assertEquals(itemDto.getPriceDto(), itemEntity.getPrice());
@@ -90,12 +94,14 @@ public class ItemMapperTest {
 
             Assertions.assertNotNull(itemDto);
 
+            Assertions.assertNotNull(itemDto.getIdDto());
             Assertions.assertNotNull(itemDto.getNameDto());
             Assertions.assertNotNull(itemDto.getDescriptionDto());
             Assertions.assertNotNull(itemDto.getPriceDto());
             Assertions.assertNotNull(itemDto.getCategoryDto());
             Assertions.assertNotNull(itemDto.getCountriesDto());
 
+            Assertions.assertEquals(itemEntity.getId(), itemDto.getIdDto());
             Assertions.assertEquals(itemEntity.getName(), itemDto.getNameDto());
             Assertions.assertEquals(itemEntity.getDescription(), itemDto.getDescriptionDto());
             Assertions.assertEquals(itemEntity.getPrice(), itemDto.getPriceDto());
@@ -105,7 +111,5 @@ public class ItemMapperTest {
         }
 
     }
-
-
 
 }
