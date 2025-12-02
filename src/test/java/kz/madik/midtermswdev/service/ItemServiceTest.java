@@ -119,8 +119,13 @@ public class ItemServiceTest {
         Assertions.assertEquals(added.getDescriptionDto(), add.getDescriptionDto());
         Assertions.assertEquals(added.getPriceDto(), add.getPriceDto());
         Assertions.assertEquals(added.getCategoryDto().getId(), add.getCategoryDto().getId());
+        Assertions.assertEquals(added.getCountriesDto().size(), add.getCountriesDto().size());
 
-//        Assertions.assertEquals(added.getCountriesDto(), add.getCountriesDto());
+        List<Country> addedCountries = added.getCountriesDto();
+        List<Country> addCountries = add.getCountriesDto();
+        for(int i = 0; i < addedCountries.size(); i++) {
+            Assertions.assertEquals(addedCountries.get(i).getId(), addCountries.get(i).getId());
+        }
     }
 
     @Test
@@ -169,6 +174,13 @@ public class ItemServiceTest {
         Assertions.assertEquals(update.getCategoryDto().getId(), updateItem.getCategoryDto().getId());
         Assertions.assertEquals(update.getCountriesDto().size(), updateItem.getCountriesDto().size());
 
+        List<Country> updateCountries = update.getCountriesDto();
+        List<Country> updateItemCountries = updateItem.getCountriesDto();
+        for(int i = 0; i < updateCountries.size(); i++) {
+            Assertions.assertEquals(updateCountries.get(i).getId(), updateItemCountries.get(i).getId());
+        }
+
+
         ItemDto updated = itemService.getById(update.getIdDto());
 
         Assertions.assertNotNull(updated);
@@ -186,6 +198,11 @@ public class ItemServiceTest {
         Assertions.assertEquals(updated.getPriceDto(), update.getPriceDto());
         Assertions.assertEquals(updated.getCategoryDto().getId(), update.getCategoryDto().getId());
         Assertions.assertEquals(updated.getCountriesDto().size(), update.getCountriesDto().size());
+
+        List<Country> updatedCountries = updated.getCountriesDto();
+        for(int i = 0; i < updatedCountries.size(); i++) {
+            Assertions.assertEquals(updatedCountries.get(i).getId(), updateCountries.get(i).getId());
+        }
     }
 
     @Test
