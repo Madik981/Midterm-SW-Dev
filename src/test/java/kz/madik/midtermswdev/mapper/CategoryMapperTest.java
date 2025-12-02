@@ -1,8 +1,7 @@
-package kz.madik.midtermswdev;
+package kz.madik.midtermswdev.mapper;
 
 import kz.madik.midtermswdev.dto.CategoryDto;
 import kz.madik.midtermswdev.entity.Category;
-import kz.madik.midtermswdev.mapper.CategoryMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,7 @@
-package kz.madik.midtermswdev;
+package kz.madik.midtermswdev.mapper;
 
 import kz.madik.midtermswdev.dto.CountryDto;
 import kz.madik.midtermswdev.entity.Country;
-import kz.madik.midtermswdev.mapper.CountryMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

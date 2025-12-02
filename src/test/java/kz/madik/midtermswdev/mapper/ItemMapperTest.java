@@ -1,4 +1,4 @@
-package kz.madik.midtermswdev;
+package kz.madik.midtermswdev.mapper;
 
 import kz.madik.midtermswdev.entity.Category;
 import kz.madik.midtermswdev.entity.Country;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import kz.madik.midtermswdev.dto.ItemDto;
 import kz.madik.midtermswdev.entity.Item;
-import kz.madik.midtermswdev.mapper.ItemMapper;
 
 import java.util.ArrayList;
 import java.util.List;

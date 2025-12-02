@@ -1,6 +1,5 @@
-package kz.madik.midtermswdev;
+package kz.madik.midtermswdev.service;
 
-import kz.madik.midtermswdev.service.CountryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

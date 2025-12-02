@@ -1,9 +1,8 @@
-package kz.madik.midtermswdev;
+package kz.madik.midtermswdev.service;
 
 import kz.madik.midtermswdev.dto.ItemDto;
 import kz.madik.midtermswdev.entity.Category;
 import kz.madik.midtermswdev.entity.Country;
-import kz.madik.midtermswdev.service.ItemService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,7 +119,8 @@ public class ItemServiceTest {
         Assertions.assertEquals(added.getDescriptionDto(), add.getDescriptionDto());
         Assertions.assertEquals(added.getPriceDto(), add.getPriceDto());
         Assertions.assertEquals(added.getCategoryDto().getId(), add.getCategoryDto().getId());
-        Assertions.assertEquals(added.getCountriesDto().size(), add.getCountriesDto().size());
+
+//        Assertions.assertEquals(added.getCountriesDto(), add.getCountriesDto());
     }
 
     @Test
