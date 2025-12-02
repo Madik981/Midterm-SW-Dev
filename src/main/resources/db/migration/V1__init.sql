@@ -2,11 +2,13 @@ CREATE TABLE t_category (
     id BIGSERIAL PRIMARY KEY,
     category VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE t_country (
     id BIGSERIAL PRIMARY KEY,
     code VARCHAR(10) NOT NULL,
     country VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE t_item (
     id BIGSERIAL primary key,
     name VARCHAR(255) NOT NULL,
