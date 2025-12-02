@@ -28,8 +28,8 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void addCountry(CountryDto countryDto) {
-        countryRepository.save(countryMapper.toEntity(countryDto));
+    public CountryDto addCountry(CountryDto countryDto) {
+        return countryMapper.toDto(countryRepository.save(countryMapper.toEntity(countryDto)));
     }
 
     @Override
@@ -45,7 +45,11 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         countryRepository.deleteById(id);
+
+        Country country = countryRepository.findById(id).orElse(null);
+
+        return country == null;
     }
 }
