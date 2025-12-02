@@ -1,7 +1,6 @@
 package kz.madik.midtermswdev.config;
 
 import kz.madik.midtermswdev.service.MyUserService;
-import kz.madik.midtermswdev.service.impl.MyUserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -19,7 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public MyUserService userService(){
-        return new MyUserServiceImpl();
+        return new MyUserService();
     }
     @Bean
     public PasswordEncoder passwordEncoder(){

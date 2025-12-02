@@ -1,22 +1,33 @@
 package kz.madik.midtermswdev.controller;
 
+import kz.madik.midtermswdev.entity.User;
+import kz.madik.midtermswdev.service.ItemService;
 import kz.madik.midtermswdev.service.MyUserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/auth")
 public class UserApi {
-    @Autowired
-    private final MyUserService myUserServiceImpl;
+    private final MyUserService myUserService;
+    private final ItemService itemService;
 
-    @GetMapping
+    @GetMapping()
     public String getUser() {
         return "User Authenticated";
+    }
+
+    @PostMapping("/register")
+    public void register(@RequestBody User user) {
+        myUserService.registr(user);
+    }
+
+    @GetMapping("/items")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public ResponseEntity<?> getItems(){
+        return ResponseEntity.ok(itemService.getAll());
     }
 }
