@@ -28,8 +28,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void addCategory(CategoryDto countryDto) {
-        categoryRepository.save(categoryMapper.toEntity(countryDto));
+    public CategoryDto addCategory(CategoryDto countryDto) {
+        return categoryMapper.toDto(categoryRepository.save(categoryMapper.toEntity(countryDto)));
     }
 
     @Override
@@ -44,7 +44,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         categoryRepository.deleteById(id);
+
+        Category category = categoryRepository.findById(id).orElse(null);
+
+        return category == null;
     }
 }
