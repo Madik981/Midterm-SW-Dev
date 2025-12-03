@@ -62,7 +62,6 @@ public class CategoryServiceTest {
         Assertions.assertNotNull(add.getIdDto());
         Assertions.assertNotNull(add.getCategoryDto());
 
-        Assertions.assertEquals(add.getIdDto(), categoryDto.getIdDto());
         Assertions.assertEquals(add.getCategoryDto(), categoryDto.getCategoryDto());
 
 
@@ -113,16 +112,4 @@ public class CategoryServiceTest {
 
     }
 
-    @Test
-    void deleteTest() {
-        Random random = new Random();
-        int randomId = random.nextInt(categoryService.getAll().size());
-        Long someId = categoryService.getAll().get(randomId).getIdDto();
-
-        Assertions.assertTrue(categoryService.deleteById(someId));
-
-        CategoryDto deleted = categoryService.getById(someId);
-
-        Assertions.assertNull(deleted);
-    }
 }

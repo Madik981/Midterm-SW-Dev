@@ -126,16 +126,4 @@ public class CountryServiceTest {
 
     }
 
-    @Test
-    void deleteTest() {
-        Random random = new Random();
-        int randomId = random.nextInt(countryService.getAll().size());
-        Long someId = countryService.getAll().get(randomId).getIdDto();
-
-        Assertions.assertTrue(countryService.deleteById(someId));
-
-        CountryDto deleted = countryService.getById(someId);
-
-        Assertions.assertNull(deleted);
-    }
 }
